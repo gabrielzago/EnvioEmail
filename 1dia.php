@@ -2,7 +2,7 @@
   include_once('conection.php');
   include_once("funcaoEnviaEmail.php");
 
-  $data5dias =  date('Y-m-d', strtotime("+5 days"));
+  $data5dias =  date('Y-m-d', strtotime("+1 days"));
   $assunto = "";
   $nome_de = "Aviso de vencimento";
   $email = "sistema@sistema.com.br";
@@ -21,21 +21,18 @@
     $content .= '<html xmlns="http://www.w3.org/1999/xhtml">';
     $content .= ' <head>';
     $content .= '  <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8"/>';
-    $content .= '       <title>Aviso de 5 dias.</title>';
+    $content .= '       <title>Aviso de 1 dia.</title>';
     $content .= ' </head>';
     $content .= ' <body>';
-    $content .= '<div style="color:#d80404; background:  #ddd;text-align:  center;height: 40px; margin:10px;"><h2 style="
-    padding-top: 7px;">Aviso de 5 dias</h2></div>';
-    $content .= '<div style="margin:10px;font-size: 17px;">';
+    $content .= '<div><h2>Aviso de 1 dia</h2></div>';
     $content .= '  Prezado(a) <strong>'.$result['display_name'].'</strong><br /><br />';
     $content .= '  Seu acesso: <strong>'.$result['name'].' </strong> vencerá dia: <strong>'.$dataFull.'</strong>.<br/><br/>';
     $content .= '  Por favor, efetuar a renovação.';
-    $content .= '</div>';
     $content .= '    <hr />';
     $content .= ' </body>';
     $content .= '</html>';
     echo $content;
-    // enviaEmail($result['email'], $email, $nome_de, $assunto, $content);
+    //  enviaEmail($result['email'], $email, $nome_de, $assunto, $content);
   }
 
 ?>
