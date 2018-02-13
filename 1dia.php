@@ -5,7 +5,7 @@
   $data5dias =  date('Y-m-d', strtotime("+1 days"));
   $assunto = "";
   $nome_de = "Aviso de vencimento";
-  $email = "sistema@sistema.com.br";
+  $email = "email@email.com.br";
 
   $sql = "Select name, password, display_name, expire_date, email from dados_import where expire_date = '$data5dias'";
   $resSql = query($sql);
@@ -52,7 +52,8 @@
     $content .= '  </tbody>';
     $content .= '</table>';
 
-    //enviaEmail($result['email'], $email, $nome_de, $assunto, $content);
+    enviaEmail($result['email'], $email, $nome_de, $assunto, $content);
   }
 
+  echo "Total de E-mails enviados: ".$total;
 ?>

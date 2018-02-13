@@ -51,8 +51,8 @@
     $content .= '    </tr>';
     $content .= '  </tbody>';
     $content .= '</table>';
-    echo $content;
-    //enviaEmail($result['email'], $email, $nome_de, $assunto, $content);
+    enviaEmail($result['email'], $email, $nome_de, $assunto, $content);
   }
 
+  echo "Total de E-mails enviados: ".$total;
 ?>

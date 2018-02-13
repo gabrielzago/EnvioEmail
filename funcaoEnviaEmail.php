@@ -12,13 +12,14 @@
 
   function enviaEmail($para, $de, $de_nome, $assunto, $corpo) {
       global $error;
+      global $total;
+
       $mail = new PHPMailer();
       $mail->IsSMTP();        // Ativar SMTP
       $mail->SMTPDebug = 0;       // Debugar: 1 = erros e mensagens, 2 = mensagens apenas
       $mail->SMTPAuth = true;     // Autenticação ativada
       $mail->SMTPSecure = 'ssl';
      // $mail->SMTPSecure = 'tls';  // SSL REQUERIDO pelo GMail
-      //$mail->Host = $host;   // SMTP utilizado
       $mail->Host = 'smtp.gmail.com';
       $mail->Port = 465;          // A porta 587 deverá estar aberta em seu servidor
       $mail->Username = GUSER;
@@ -32,8 +33,7 @@
           $error = 'Mail error: '.$mail->ErrorInfo;
           return false;
       } else {
-          $error = 'Mensagem enviada!';
-          return true;
+        $total = $total+1;
       }
   }
 
